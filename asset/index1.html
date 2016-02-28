@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>D3 Test</title>
+    <script type="text/javascript" src="lib/d3/d3.js"></script>
+    <style>
+      div.bar {
+         display: inline-block;
+         width: 20px;
+         height: 75px;   /* この数値は実行時に上書きされます */
+         background-color: teal;
+         /* border: 1px black solid; */
+         margin-right: 2px;
+      }
+    </style>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+      //// attr
+      // var dataset = [ 5, 10, 15, 20, 25 ];
+      // d3.select("body").selectAll("div")
+      //    .data(dataset)
+      //    .enter()
+      //    .append("div")
+      //    .attr("class", "bar");
+
+      //// classed
+      // var dataset = [ 5, 10, 15, 20, 25 ];
+      // d3.select("body").selectAll("div")
+      //    .data(dataset)
+      //    .enter()
+      //    .append("div")
+      //    .classed("bar", true);
+
+      //// style
+      var dataset = [ 5, 10, 15, 20, 25 ];
+      d3.select("body").selectAll("div")
+        .data(dataset)
+        .enter()
+        .append("div")
+        .classed("bar", true)
+        .style("height", function(d) {
+          // return d + "px";
+          var barHeight = d * 5;  // 高さを 5 倍にします
+          return barHeight + "px";
+        });
+
+    </script>
+    <script type="text/javascript">
+      //// select/append/text
+      // d3.select("body")
+      //     .append("p")
+      //     .text("新しいパラグラフ！");
+
+      //// selectAll/data/enter
+      // var dataset = [ 5, 10, 15, 20, 25 ];
+      // d3.select("body").selectAll("p")
+      //   .data(dataset)
+      //   .enter()
+      //   .append("p")
+      //   .text("新しいパラグラフ");
+
+      ///// function(d){}/style
+      // var dataset = [ 5, 10, 15, 20, 25 ];
+      // d3.select("body").selectAll("p")
+      //   .data(dataset)
+      //   .enter()
+      //   .append("p")
+      //   .text(function(d) { return  d + " だよ！"; })
+      //   .style("color", "red");
+
+      // var dataset = [ 5, 10, 15, 20, 25 ];
+      // d3.select("body").selectAll("p")
+      //   .data(dataset)
+      //   .enter()
+      //   .append("p")
+      //   .text(function(d) { return  d + " だよ！"; })
+      //   .style("color", function(d) {
+      //     if (d > 15) { return "red"; } else { return "black"; }
+      //   });
+    </script>
+</body>
+
+</html>
